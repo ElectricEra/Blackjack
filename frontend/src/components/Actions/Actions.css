@@ -1,0 +1,27 @@
+.actions {
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  padding: 20px;
+  margin: 20px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.text-green {
+  color: #00ff00;
+}
+
+.text-red {
+  color: #ff0000;
+}
+
+.buttons {
+  margin-top: 10px;
+}
+
+.buttons button + button {
+  margin-left: 4px;
+}
