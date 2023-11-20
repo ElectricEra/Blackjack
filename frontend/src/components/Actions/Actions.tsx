@@ -2,16 +2,21 @@ import React from 'react';
 
 import './Actions.css';
 
-export const Actions = ({ gameState, resetGame, hit, stand, dealersPlay, deal }) => {
+export const Actions = ({ gameId, gameState, resetGame, hit, stand, dealersPlay, deal }) => {
   return (
     <div className="actions">
       <div className="title">Actions</div>
-      <div>Game state: {gameState.gameState}</div>
-      <div>Result: {
-        gameState.result ?
-          <div className={gameState.result === 'Player wins' ? 'text-green' : 'text-red'}>{gameState.result}</div> :
-          <div>Game in progress</div>
+      <div className="details">
+        <div className="details-item-left">Table ID:</div>
+        <div className="details-item-right">{gameId}</div>
+        <div className="details-item-left">Game state:</div>
+        <div className="details-item-right">{gameState.gameState}</div>
+        <div className="details-item-left">Result:</div>
+        {gameState.result ?
+          <div className={`details-item-right ${gameState.result === 'Player wins' ? 'text-green' : 'text-red'}`}>{gameState.result}</div> :
+          <div className="details-item-right">Game in progress</div>
         }
+
       </div>
       <div className="buttons">
         {gameState.gameState === 'Pre-deal' && <button onClick={deal}>Deal</button>}

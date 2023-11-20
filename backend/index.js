@@ -5,7 +5,9 @@ import { router } from './src/routes/index.js';
 
 const app = express();
 
-// Enable CORS, since frontend is ran through da ev server
+// Parse body
+app.use(express.json())
+// Enable CORS, since frontend is ran through dev server
 app.use(cors());
 // Import all routes
 app.use('/', router);

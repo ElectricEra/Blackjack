@@ -1,20 +1,19 @@
 import express from 'express';
-import { Game } from '../components/Game/Game.js';
+import { startGame } from './startGame.js';
+import { closeTable } from './closeTable.js';
 import { executeGameCommand } from './utils/executeGameCommand.js';
 
 const router = express.Router();
-
-export const game = new Game();
 
 // Improvement considerations:
 // - Create middleware to handle errors instead of sending them from each handler
 // - Add logger
 
 // Default route returns a game status
-router.get('/', (req, res) => {
-  res.send(game.getGameStatus());
-});
-
+// Table endpoints
+router.get('/', startGame);
+router.get('/closeTable', closeTable);
+// Game endpoints
 router.put('/deal', executeGameCommand('deal'));
 router.put('/hit', executeGameCommand('playerHit'));
 router.put('/stand', executeGameCommand('playerStand'));

@@ -18,3 +18,14 @@ export const convertRanksToPoints = (rank) => {
 
   return map[rank];
 }
+
+export const generateRandomString = (length) => {
+  const availableCharacters = '1234567890abcdefghijklmnopqrstuvwxyz';
+
+  let randomString = '';
+  for (let i = 0; i < length; i++) {
+    randomString += availableCharacters[Math.floor(Math.random() * availableCharacters.length)]
+  }
+
+  return randomString
+};
