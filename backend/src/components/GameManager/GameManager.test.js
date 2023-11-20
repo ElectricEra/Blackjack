@@ -12,8 +12,6 @@ describe('GameManager', () => {
   
       const gameManager = new GameManager();
       const tableDetails = gameManager.createNewTable();
-
-      console.log(tableDetails);
   
       expect(tableDetails.id).toBe('12345');
       expect(tableDetails.game).toBeInstanceOf(Game);
